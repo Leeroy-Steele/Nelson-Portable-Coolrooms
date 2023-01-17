@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
 
 
 // for bootstrap
@@ -24,12 +25,54 @@ export default function EnquiryForm() {
 
   function submitButtonClick(e){
     e.preventDefault()
-    // alert(fName + lName + phoneNumber + city + email + message)
+    let messageWithLineBreaks = message.replace("  ","<br>")
+    
+    // add axios call here
+    const data = JSON.stringify({
+      "api_key": "api-43E42C2A96AB11ED9716F23C9333BA00",
+      "sender": "Website_For_Nelson_Portable_Coolrooms@mail.com",
+      "to": [
+        "Steeleleeroy@gmail.com",
+        "Leeroysteele@hotmail.com"
+      ],
+
+      //define email content here
+
+      "subject": "Email Enquiry",
+
+      "html_body": `  
+        <h2>enquiry from: ${fName} ${lName}</h2>
+        <h3>reply to: ${email}</h3>
+        <h3>phone number: ${phoneNumber}</h3>
+        <h3>city: ${city}</h3>
+        <p>enquiry: ${messageWithLineBreaks}</p>
+        `,
+      "text_body": ""
+    });
+    
+    const config = {
+      method: 'post',
+      url: 'https://api.smtp2go.com/v3/email/send',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
     setShow(true)
   }
 
   function modalCloseButton(){
-    window.location.reload()
+    // window.location.reload()
+    setShow(false)
   }
 
   return (
@@ -76,8 +119,15 @@ export default function EnquiryForm() {
                   <option className='text-black' value="Napier">Napier</option>
                         
                   <option className='text-black' value="Dunedin">Dunedin</option>
-                  <option className='text-black' value="Palmerston North">Tauranga</option>
-                  <option className='text-black' value="Rotorua">Napier</option>
+                  <option className='text-black' value="Palmerston North">Palmerston North</option>
+                  <option className='text-black' value="Rotorua">Rotorua</option>
+
+                  <option className='text-black' value="Nelson">Nelson</option>
+                  <option className='text-black' value="Blenheim">Blenheim</option>
+                  <option className='text-black' value="Kaikoura">Kaikoura</option>
+
+                  <option className='text-black' value="North Island Other">North Island Other</option>
+                  <option className='text-black' value="South Island Other">South Island Other</option>
 
                 </Form.Select>
               </Form.Group>
@@ -91,7 +141,7 @@ export default function EnquiryForm() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Enquiry</Form.Label>
-            <Form.Control as="textarea" rows={3} onChange={e => {messageSet(e.target.value)}} />
+            <Form.Control className="textAreaEnquiryForm" as="textarea" rows={3} onChange={e => {messageSet(e.target.value)}} />
           </Form.Group>
 
           <Button className='btn btn-danger' type="submit" onClick={submitButtonClick}>Submit Enquiry</Button>

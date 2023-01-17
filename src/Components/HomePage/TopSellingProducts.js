@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import carouselImage1 from '../../Images/homeCarasell-1.png' 
 
 import Carousel from 'react-bootstrap/Carousel';
