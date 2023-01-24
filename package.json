@@ -1,5 +1,6 @@
 {
   "name": "shanes_website",
+  "homepage": "http://nelsonportablecoolrooms.life/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

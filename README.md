@@ -1,3 +1,7 @@
+# Nelson Portable Coolrooms
+
+This was a freelance project for the company Nelson Portable Coolrooms. More details to follow.. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
