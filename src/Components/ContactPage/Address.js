@@ -3,7 +3,7 @@ import React from 'react'
 export default function Address() {
   return (
     <div className='text-center'>
-        <h2 className='display-2 text-black m-4 fw-bold'>Find Us</h2>
+        <h2 className='display-6 text-muted m-4 fw-bold'>Find us</h2>
         <p className='text-black'>Nelson Porable Coolrooms</p>
         <p className='text-black'>Beach road, Richmond, Nelson </p>
         <p className='text-black'>7020, NZ</p>

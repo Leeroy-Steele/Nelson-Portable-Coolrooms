@@ -1,5 +1,5 @@
 import React from 'react'
-import MainLogoFile from '../Images/acLogoDark.svg'
+import MainLogoFile from '../Logos/acLogoDark.svg'
 
 export default function MainLogo(props) {
     let className = props.cName

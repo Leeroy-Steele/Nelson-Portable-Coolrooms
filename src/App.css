@@ -8,7 +8,6 @@
   min-width: 355px;
 }
 
-
 /* For the header nav component */
 
 .headerMainLogo, .jumbotronAcLogo, .footerLogo, .navLinkImg{
@@ -16,12 +15,10 @@
 
  }
 
-
 .navLinkImg{
   width: 35px;
 
 }
-
 
 /* from bootstrap */
 
@@ -96,36 +93,27 @@
 
  .homeJumbotronDiv{
   position: relative;
-  /* max-width: 1920px; */
-  /* min-width: 900px; */
   margin: auto;
   top: 0px;
   overflow: hidden;
   width: 100%;
-  max-height: 600px;
+  max-height: 550px;
  }
 
  .videoTag{
   position: relative;
   top: 0px;
   width: 100%;
-  /* height: 100%; */
-  /* min-height: 600px; */
   filter: brightness(50%);
  }
 
  .jumbotronText{
   position: absolute;
-  /* padding: 50px; */
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   text-align: center;
-  /* top: 50px; */
-  /* text-align: center; */
-  /* background: rgb(0,0,0,0.2); */
-  
   z-index: 2;
  }
 
@@ -143,62 +131,37 @@
  /* carousell section */
 
  .carouselDiv{
-  
   margin: auto;
-  max-width: 700px;
+  max-width: 600px;
  }
 
  .carouselText{
   position: relative;
-  top: -400px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) , rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.333),rgba(0, 0, 0, 0));
+  z-index: 10;
+  top:-290px;
+  overflow: visible;
  }
- 
- @media only screen and (max-width: 766px){ /* home screen carousel text location for small screens */
-  .carouselText{
-    top: -240px;
 
+ @media (min-width: 768px) {
+  .carouselText {
+    top: -360px;
   }
 }
 
- @media only screen and (max-width: 540px){ /* home screen carousel text location for small screens */
-  .carouselText{
-    top: -190px;
-
+@media (max-width: 500px) {
+  .carouselText {
+    top: -250px;
   }
 }
 
-
-@media only screen and (max-width: 475px){ /* home screen carousel text location for small screens */
-  .carouselText{
-    top: -140px;
-
+@media (max-width: 428px) {
+  .carouselText {
+    top: -150px;
   }
 }
-
-
-@media only screen and (max-width: 400px){ /* home screen carousel text location for small screens */
-  .carouselText{
-    top: -100px;
-
-  }
-}
-
 
  /* About us section */
-
- .aboutUsDiv{
-  background-image: url('../src/Images/homepageAboutUsSection.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 600px;
- }
-
- .aboutUstextDiv{
-  background-color: rgb(0,0,255,0.8);
-  border-radius: 15px;
-  /* margin: auto; */
-  max-width: 900px;
- }
 
 
  /* Testimonials Section */
@@ -206,28 +169,11 @@
  .testimonialsDiv{
   
   margin: auto;
-  padding: 100px 0 100px 0;
+  padding: 125px 0 125px 0;
   max-width: 900px;
-  /* animation: animateIn 5s linear 2s infinite alternate; */
+  min-height: 560px;
  }
  
-/* @Keyframes animateIn{
-  0%  {left:0px;margin: 0px;}
-  100%  {right:0;margin: auto;}
-} */
-
- /* Products section */
-
- .categorySelectDiv{
-  max-width: 250px;
-  margin-left: auto;
- }
-
- .searchSelectDiv{
-  max-width: 250px;
-  margin-right: auto;
- }
-
  /* Contact us & Enquiry Form section */
 
  .enquiryFormDiv{
@@ -235,10 +181,6 @@
   margin: auto;
   padding: 50px;
  }
-
- /* .textAreaEnquiryForm{
-  white-space: pre-wrap;
- } */
 
  /* logout page  */
 

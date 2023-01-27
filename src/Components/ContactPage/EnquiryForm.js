@@ -1,7 +1,17 @@
+import {useSearchParams} from "react-router-dom";
 
 import React, { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  NavLink,
+  useNavigate,
+  createSearchParams,
+} from 'react-router-dom';
 
 
 // for bootstrap
@@ -12,6 +22,8 @@ import Button from 'react-bootstrap/Button';
 
 export default function EnquiryForm() {
 
+  const navigate = useNavigate();
+
   const [fName,fNameSet] = useState('')
   const [lName,lNameSet] = useState('')
   const [email,emailSet] = useState('')
@@ -19,6 +31,10 @@ export default function EnquiryForm() {
   const [city,citySet] = useState('')
   const [message,messageSet] = useState('')
 
+  // prepopulate message from enquiry button if used
+  const [searchParams, setSearchParams] = useSearchParams()
+  const enquirySubject = "Enquiry about: " + searchParams.get('enquirySubject')
+  
   //for modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -71,8 +87,8 @@ export default function EnquiryForm() {
   }
 
   function modalCloseButton(){
-    // window.location.reload()
-    setShow(false)
+    // on modal close, navigate to homepage
+    navigate("/");
   }
 
   return (
@@ -110,6 +126,7 @@ export default function EnquiryForm() {
                 <Form.Label>City</Form.Label>
                 <Form.Select aria-label="Default select example" onChange={e => {citySet(e.target.value)}} >
                   <option className='text-black' >Select City</option>
+
                   <option className='text-black' value="Auckland">Auckland</option>
                   <option className='text-black' value="Wellington">Wellington</option>
                   <option className='text-black' value="Christchurch">Christchurch</option>
@@ -141,7 +158,11 @@ export default function EnquiryForm() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Enquiry</Form.Label>
-            <Form.Control className="textAreaEnquiryForm" as="textarea" rows={3} onChange={e => {messageSet(e.target.value)}} />
+            {(searchParams.get('enquirySubject')===null)?
+            <Form.Control className="textAreaEnquiryForm" as="textarea" rows={5} onChange={e => {messageSet(e.target.value)}} defaultValue=''/>
+            :
+            <Form.Control className="textAreaEnquiryForm" as="textarea" rows={5} onChange={e => {messageSet(e.target.value)}} defaultValue={enquirySubject}/>}
+
           </Form.Group>
 
           <Button className='btn btn-danger' type="submit" onClick={submitButtonClick}>Submit Enquiry</Button>

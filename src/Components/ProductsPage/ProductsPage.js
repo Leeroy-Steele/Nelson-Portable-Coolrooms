@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { HashLink as Link } from 'react-router-hash-link'; // for enquiry button
-import { useAuth } from '../LoginPages/Auth'  //For when logged in
+import ProductCard from './ProductCard'
 
 // for bootstrap
 import Form from 'react-bootstrap/Form';
@@ -12,136 +12,71 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+// product images
+import TandemBrakedTrailerImage from '../../Images/Products/Tandem-Braked-Trailers.png'
+import SingleAxleTrailerImage from'../../Images/Products/Single-Axle-Refrigerated-Trailers.png'
+import NewInstallContainersImage from '../../Images/Products/20ft-New-Install-Containers.png'
+import StandardReefersImage from '../../Images/Products/20ft-Standard-Reefers.png'
+import CustomRefrigeratedImage from '../../Images/Products/Custom-Refrigerated-Trailers.png'
+
 export default function ProductsPage() {
 
-  let[category,setCategory]= useState('')
-  let [productData, setProductData] = useState('') 
-  let [displayData, setDisplayData] = useState([])
-  let [searchText, setSearchText] = useState('')
-  const auth = useAuth()  //For when logged in
-
-  useEffect(() => { // get fake store products data
-
-    const options = {
-        method: 'GET',
-        url: 'https://fakestoreapi.com/products',
-
-    };
-      
-    axios.request(options)
-        .then(res => {setProductData(res.data);setDisplayData(res.data)})
-        .catch(err => {
-            console.log(err)
-        })
-        
-  },[]) //only run once 
-
-  useEffect(()=>{
-
-    setDisplayData([])  //delete previous entries
-
-    for(let i in productData){
-
-      let currentCategory = productData[i].category
-
-      if(currentCategory===category){
-        setDisplayData(oldArray => [...oldArray, productData[i]]);
-      }
-      
-    }
-
-  },[category])
-
-  function handleEdit(id){
-    alert(`editing item #${id}`)
-    
-  }
-
-  function handleDelete(id){
-    alert(`item #${id} has been deleted`)
-    
-  }
-
-  function searchButtonClick(){
-    // console.log(searchText)
-    setDisplayData([])  //delete previous entries
-
-    for(let i in productData){
-
-      let currentItemTitle = productData[i].title
-
-      if(currentItemTitle===searchText){
-        setDisplayData(oldArray => [...oldArray, productData[i]]);
-      }
-      
-    }
-
-  }
-
   return (
-    <div>
+    <>
       <h2 className='text-primary text-center mt-4 py-3 '>OUR PRODUCTS</h2>
 
+      <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center p-3 '>
 
-          <Row className='d-flex justify-content-center'>
-            <Col>
-              <div className='text-end categorySelectDiv'>
+        <ProductCard
+          imgURL={SingleAxleTrailerImage}
+          title='Single Axle Refrigerated Trailers'
+          subTitle='Freezer or Chiller'
+          text1=  'Our single axle trailers are our most popular product, still able to carry a payload of up to 850kgs these trailers tow easily and are easy to maneuvre around on jockey wheel and can be anchored down firmly with the standard dual landing legs'
+          text2=  'Internal dimensions are 2.25L x 1.35W x 1.75 H'
+          text3=  'Cubic capacity: 5.3 m3'
+          text4=  'These are priced from $12,500.00 + GST and therefore represent a well priced quality new product.'
+        />
 
-                <Form.Group className="mb-4 " controlId="exampleForm.ControlInput1">
-                    <Form.Select aria-label="Default select example" onChange={e => {setCategory(e.target.value)}} >
-                      <option className='text-black'>choose category</option>
-                      <option className='text-black' value="men's clothing">men's clothing</option>
-                      <option className='text-black' value="jewelery">jewelery</option>
-                      <option className='text-black' value="electronics">electronics</option>
-                      <option className='text-black' value="women's clothing">women's clothing</option>
-                    </Form.Select>
-                </Form.Group>
-              </div>
-            </Col>
-            <Col>
-              <div className='text-start searchSelectDiv'>
+        <ProductCard
+          imgURL={TandemBrakedTrailerImage}
+          title='Tandem Braked Trailers'
+          subTitle='Freezer or Chiller'
+          text1=  'All of our trailers are proudly made in NZ and are built using the highest quality materials and equipment'
+          text2=  'Our Refrigeration Machinery are from leading brands well established in Europe and Australasia'
+          text3=  'Electronic controllers are installed as standard, 3mm Alloy Checker plate flooring with two drains, LED Lighting and Quality lockable insulated doors'
+          text4=  'Trailer frames are hot dip galvanised and feature a rear step, jockey wheel, optional brakes and LED lights. All new trailers come with a new WOF and Registration so they are ready for use'
+        />
 
-                <InputGroup className="mb-3">
-                <Form.Control className='' placeholder="Mens Cotton Jacket" onChange={e => {setSearchText(e.target.value)}} />
-                  <Button className='btn btn-success' type="submit" onClick={searchButtonClick}>Search</Button>
-                </InputGroup>
-              </div>
-            </Col>
-          </Row>
-
-
-        <div className='cardDiv row row-cols-1 row-cols-md-3 row-cols-lg-5 row-cols-xl-6 justify-content-center'>
+        <ProductCard
+          imgURL={NewInstallContainersImage}
+          title='20ft New Install Containers'
+          subTitle='Single Phase, Freezer or Chiller'
+          text1=  'Ex shipping line Reefer containers with original 3-Phase machinery removed' 
+          text2=  'The Container itself is referbished and coated with a quality Marine Grade paint'
+          text3=  'New Chiller or Freezer equipment is then installed to create a portable and versatile container that can be run off a standard single phase 10 or 15amp power socket'
+        />
         
-            {displayData.map((item, index) => (
-           
-              <Card className='card m-1' key={index} >
-                <Card.Img  variant="top" src={item.image} />
-                <Card.Body className='h-100'>
-                  <Card.Title className='text-black' >{item.title}</Card.Title>
-                  <Card.Text className='text-black' >{item.description}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item>Price: ${item.price}</ListGroup.Item>
-                  <ListGroup.Item>Category: {item.category}</ListGroup.Item>
-                  <ListGroup.Item>Item rating {item.rating.rate} from {item.rating.count} people</ListGroup.Item>
-                </ListGroup>
-                <Card.Body>
-                  <Link className='btn btn-primary w-100' to="/Contact#enquiryAnchorTag">Enquire</Link>
-                  
-                  {(auth.checkUserName()!==null)? //  if logged in show extra buttons
-                      <>
-                      <Link onClick={()=>handleEdit(item.id)} className='btn btn-warning w-100 mt-1' >Edit Item</Link>
-                      <Link onClick={()=>handleDelete(item.id)} className='btn btn-danger w-100 mt-1' >Delete Item</Link>
-                      </>:null
-                  }
+        <ProductCard
+          imgURL={StandardReefersImage}
+          title='20ft Standard Reefers'
+          subTitle='3-Phase serviced machinery, Freezer & Chiller'
+          text1=  'This product is straight from the shipping line, straight out of the fleet' 
+          text2=  'Referbished, coated in marine grade paint. Machinery is serviced including installing a new plug, electrically tested and test-run down to -25 Degrees'
+          text3=  'Standard Reefers are very versatile as they can be set between a wide range of setpoints and can be used in very harsh environments'
+          text4=  'We are able to certify containers for shipping overseas and supply new spares'
+        />
+              
+        <ProductCard
+          imgURL={CustomRefrigeratedImage}
+          title='Custom Refrigerated Trailers'
+          subTitle='Any height & trailer size possible'
+          text1=  "We offer a comprehensive range of features, extra's and design freedoms to our trailers"
+          text2=  'We will custom build to your design or work with you to design a trailer that will best suit your needs' 
+          text3=  'This includes colour options, sizing, lighting and interior options. Genset supply and fitment'
+          text4=  'We fit doors of any size with many types of opening options'
+        />
 
-                </Card.Body>
-              </Card>
-            
-            ))}
-          
-       
-        </div>
-    </div>
+      </div>
+    </>
   )
 }

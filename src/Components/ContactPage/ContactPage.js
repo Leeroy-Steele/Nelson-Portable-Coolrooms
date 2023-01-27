@@ -7,9 +7,9 @@ import EnquiryForm from './EnquiryForm'
 export default function ContactPage() {
   return (
     <div>
-
-      <Address></Address>
       <EnquiryForm></EnquiryForm>
+      <Address></Address>
+     
     </div>
   )
 }

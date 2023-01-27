@@ -3,17 +3,14 @@ import { NavLink } from 'react-router-dom'
 
 //images import
 
-import homeLogo from '../Images/homeLogo.svg'
-import productsLogo from '../Images/productsLogo.svg'
-import contactLogo from '../Images/contactLogo.svg'
+import homeLogo from '../Logos/homeLogo.svg'
+import productsLogo from '../Logos/productsLogo.svg'
+import contactLogo from '../Logos/contactLogo.svg'
 import MainLogo from '../Components/MainLogo'
-import LoginLogo from '../Images/loginLogo.svg'
-import { useAuth } from './LoginPages/Auth'
+import facebookLogo from '../Logos/facebook.svg'
+
 
 export default function HeaderNavbar() {
-
-  const auth = useAuth()
-  // console.log(auth.checkUserName())
 
   return (
     <header>
@@ -54,6 +51,7 @@ export default function HeaderNavbar() {
               </div>
               </NavLink>
             </li>
+
             <li>
               <NavLink to='/Contact' >
               <div className="nav-link text-white">
@@ -63,27 +61,16 @@ export default function HeaderNavbar() {
               </div>
               </NavLink>
             </li>
-            {(auth.checkUserName()===null)?
-              <li>
-                <NavLink to='/Login' >
-                <div className="nav-link text-white">
-                  
-                  <img className='navLinkImg bi d-block mx-auto mb-1' src={LoginLogo} alt='logo'></img>
-                  Login
-                </div>
-                </NavLink>
-              </li>
-              :
-              <li>
-              <NavLink to='/Logout' >
+
+            <li>
+              <a href='https://www.facebook.com/nelsonportablecoolrooms' >
               <div className="nav-link text-white">
-                
-                <img className='navLinkImg bi d-block mx-auto mb-1' src={LoginLogo} alt='logo'></img>
-                Logout
+           
+                <img className='navLinkImg bi d-block mx-auto mb-1' src={facebookLogo} alt='logo'></img>
+                Facebook
               </div>
-              </NavLink>
+              </a>
             </li>
-            }
   
    
           </ul>

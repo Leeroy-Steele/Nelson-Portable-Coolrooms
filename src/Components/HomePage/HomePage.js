@@ -8,10 +8,10 @@ import Testimonials from './Testimonials'
 export default function HomePage() {
   return (
     <div>
-        <HomePageJumbotron></HomePageJumbotron>
-        <TopSellingProducts></TopSellingProducts>
-        <AboutUs></AboutUs>
-        <Testimonials></Testimonials>
+        <HomePageJumbotron/>
+        <TopSellingProducts/>
+        <AboutUs/>
+        <Testimonials/>
     </div>
   )
 }
