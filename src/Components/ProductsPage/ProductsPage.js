@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { HashLink as Link } from 'react-router-hash-link'; // for enquiry button
+import React from 'react'
 import ProductCard from './ProductCard'
-
-// for bootstrap
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
+import ProductCardWithCarousel from './ProductCardWithCarousel'
 
 // product images
 import TandemBrakedTrailerImage from '../../Images/Products/Tandem-Braked-Trailers.png'
@@ -18,6 +8,14 @@ import SingleAxleTrailerImage from'../../Images/Products/Single-Axle-Refrigerate
 import NewInstallContainersImage from '../../Images/Products/20ft-New-Install-Containers.png'
 import StandardReefersImage from '../../Images/Products/20ft-Standard-Reefers.png'
 import CustomRefrigeratedImage from '../../Images/Products/Custom-Refrigerated-Trailers.png'
+import PortableCoolroomImage1 from '../../Images/Products/PortableCoolrooms1.PNG'
+import PortableCoolroomImage2 from '../../Images/Products/PortableCoolrooms2.PNG'
+import PortableCoolroomImage3 from '../../Images/Products/PortableCoolrooms3.PNG'
+import PortableCoolroomImage4 from '../../Images/Products/PortableCoolrooms4.PNG'
+import PortableCoolroomImage5 from '../../Images/Products/PortableCoolrooms5.PNG'
+import PortableCoolroomImage6 from '../../Images/Products/PortableCoolrooms6.PNG'
+import PortableCoolroomImage7 from '../../Images/Products/PortableCoolrooms7.PNG'
+import PortableCoolroomImage8 from '../../Images/Products/PortableCoolrooms8.PNG'
 
 export default function ProductsPage() {
 
@@ -26,6 +24,32 @@ export default function ProductsPage() {
       <h2 className='text-primary text-center mt-4 py-3 '>OUR PRODUCTS</h2>
 
       <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center p-3 '>
+
+        <ProductCardWithCarousel
+          imgURL={[
+            PortableCoolroomImage1,
+            PortableCoolroomImage2,
+            PortableCoolroomImage3,
+            PortableCoolroomImage4,
+            PortableCoolroomImage5,
+            PortableCoolroomImage6,
+            PortableCoolroomImage7,
+            PortableCoolroomImage8
+          ]}
+          title='Custom Portable Coolrooms'
+          subTitle='Freezer or Chiller'
+          text1=  'We build quality portable cool rooms in any size up to a maximum of 2.4 x 4.8 x 2.4H'
+          text2=  'These are fitted as standard with LED weatherproof Internal lighting, 5-Bar tread plate floor and quality wedge type fiberglass insulated door. Heated door frames on out Freezer models'
+          text3=  'Common optional extras include but not limited to:'
+          uListItems= {[
+            'External lifting frame for loaded lifting',
+            'Steel or galvanized base frame with forklift tine pockets and HIAB lifting eyes',
+            'Stainless steel meat rails',
+            'Tread plate sides to protect from damage',
+            'External lighting'
+          ]}
+
+        />
 
         <ProductCard
           imgURL={SingleAxleTrailerImage}

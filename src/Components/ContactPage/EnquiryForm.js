@@ -48,7 +48,7 @@ export default function EnquiryForm() {
       "api_key": "api-43E42C2A96AB11ED9716F23C9333BA00",
       "sender": "Website_For_Nelson_Portable_Coolrooms@mail.com",
       "to": [
-        "Steeleleeroy@gmail.com",
+        "sales@nelsonportablecoolrooms.co.nz",
         "Leeroysteele@hotmail.com"
       ],
 

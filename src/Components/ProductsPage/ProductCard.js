@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { HashLink as Link } from 'react-router-hash-link'; // for enquiry button
 
 // for bootstrap

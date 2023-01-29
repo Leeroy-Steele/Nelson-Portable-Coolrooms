@@ -117,7 +117,6 @@
   z-index: 2;
  }
 
-
  .jumbotronAcLogo{
   
   width: 250px;
@@ -128,7 +127,7 @@
   100% { transform: rotate(90deg); }
 }
 
- /* carousell section */
+ /* carousel section */
 
  .carouselDiv{
   margin: auto;
@@ -173,6 +172,7 @@
   max-width: 900px;
   min-height: 560px;
  }
+
  
  /* Contact us & Enquiry Form section */
 
