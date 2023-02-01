@@ -13,7 +13,7 @@ export default function homePageJumbotron() {
  
             <MainLogo cName='jumbotronAcLogo'></MainLogo>
           </div>
-            <video className='videoTag' autoPlay loop muted playsinline>
+            <video className='videoTag' autoPlay loop muted playsInline>
                 <source src={BackgroundVideo} type='video/mp4' />
                 
             </video>

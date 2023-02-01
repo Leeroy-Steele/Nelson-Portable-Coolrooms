@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import carouselImage1 from '../../Images/Products/Single-Axle-Refrigerated-Trailers.png' 
-import carouselImage2 from '../../Images/Products/Tandem-Braked-Trailers.png' 
-import carouselImage3 from '../../Images/Products/20ft-Standard-Reefers.png' 
+import carouselImage1 from '../../Images/2_singleAxleTrailers/singleAxle (1).PNG'
+import carouselImage2 from '../../Images/3_tandemBraked/tandemBraked (1).PNG' 
+import carouselImage3 from '../../Images/5_20ftStandard/20ft_Standard (1).PNG' 
 
 import Carousel from 'react-bootstrap/Carousel';
 
