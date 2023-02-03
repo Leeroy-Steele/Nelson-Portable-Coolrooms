@@ -100,6 +100,15 @@
   max-height: 550px;
  }
 
+ @media (max-width: 568px) {
+  .videoTag {
+    min-width: 600px;
+  }
+  #headerTitle{
+    font-size: 15px;
+  }
+}
+
  .videoTag{
   position: relative;
   top: 0px;
@@ -118,10 +127,10 @@
  }
 
  .jumbotronAcLogo{
-  
-  width: 250px;
+  width: 200px;
   animation: logoSpin 2s linear 2s 1;
  }
+
  @keyframes logoSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(90deg); }
@@ -160,6 +169,12 @@
   }
 }
 
+@media (max-width: 380px) {
+  .carouselText {
+    top: -200px;
+  }
+}
+
  /* About us section */
 
 
@@ -168,9 +183,9 @@
  .testimonialsDiv{
   
   margin: auto;
-  padding: 125px 0 125px 0;
+  padding: 100px 0 0 0;
   max-width: 900px;
-  min-height: 560px;
+  min-height: 450px;
  }
 
  

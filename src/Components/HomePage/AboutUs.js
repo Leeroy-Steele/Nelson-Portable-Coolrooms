@@ -3,7 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function AboutUs() {
   return (
-    <div className='aboutUsDiv px-5 py-5 mt-5 row bg-primary'>
+    <div className='aboutUsDiv px-1 py-5 mt-5 row bg-primary'>
 
         <div className='aboutUstextDiv col-lg-6 col-md-10 m-mb-3'>
 
@@ -24,7 +24,7 @@ export default function AboutUs() {
             
         </div>
         
-        <div className='aboutUstextDiv col-lg-6 col-md-10 m-mb-3'>
+        <div className='aboutUstextDiv col-lg-6 col-md-10 m-mb-3 px-4'>
 
             <h2 className='display-3 pt-5 pb-4 text-center'>OUR SERVICES</h2>
 

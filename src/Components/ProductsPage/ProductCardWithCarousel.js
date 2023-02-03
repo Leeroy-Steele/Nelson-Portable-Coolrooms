@@ -94,6 +94,15 @@ export default function ProductCardWithCarousel(props) {
                   alt="Nineth slide"
                 />
               </Carousel.Item>:null}
+              
+            {(props.imgURL[9])?
+              <Carousel.Item  className='carouselImage'>
+                <img
+                  className="d-block w-100"
+                  src={props.imgURL[9]} 
+                  alt="Nineth slide"
+                />
+              </Carousel.Item>:null}
             
           </Carousel>
 

@@ -27,7 +27,7 @@ export default function HeaderNavbar() {
 
             <MainLogo cName='headerMainLogo'></MainLogo>
 
-            <h5 className="px-2 pt-2">NELSON PORTABLE COOLROOMS</h5>
+            <h5 id='headerTitle' className="px-2 pt-2">NELSON PORTABLE COOLROOMS</h5>
           </div>
 
           <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">

@@ -5,14 +5,16 @@ import ProductCardWithCarousel from './ProductCardWithCarousel'
 //////// product images start here
 
 //custom portable coolrooms
-import PortableCoolroomImage1 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (7).PNG'
+import PortableCoolroomImage1 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (1).PNG'
 import PortableCoolroomImage2 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (2).PNG'
 import PortableCoolroomImage3 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (3).PNG'
-import PortableCoolroomImage4 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (6).PNG'
+import PortableCoolroomImage4 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (4).PNG'
 import PortableCoolroomImage5 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (5).PNG'
-import PortableCoolroomImage6 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (4).PNG'
-import PortableCoolroomImage7 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (1).PNG'
+import PortableCoolroomImage6 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (6).PNG'
+import PortableCoolroomImage7 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (7).PNG'
 import PortableCoolroomImage8 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (8).PNG'
+import PortableCoolroomImage9 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (9).PNG'
+import PortableCoolroomImage10 from '../../Images/1_customPortableCoolrooms/Portable_Coolrooms (10).PNG'
 
 //single axle
 import SingleAxleImage1 from'../../Images/2_singleAxleTrailers/singleAxle (1).PNG' 
@@ -78,7 +80,9 @@ export default function ProductsPage() {
             PortableCoolroomImage5,
             PortableCoolroomImage6,
             PortableCoolroomImage7,
-            PortableCoolroomImage8
+            PortableCoolroomImage8,
+            PortableCoolroomImage9,
+            PortableCoolroomImage10
           ]}
           title='Custom Portable Coolrooms'
           subTitle='Freezer or Chiller'
