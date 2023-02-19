@@ -132,8 +132,8 @@ export default function ProductsPage() {
           subTitle='Freezer or Chiller'
           text1=  'All of our trailers are proudly made in NZ and are built using the highest quality materials and equipment'
           text2=  'Our Refrigeration Machinery are from leading brands well established in Europe and Australasia'
-          text3=  'Electronic controllers are installed as standard, 3mm Alloy Checker plate flooring with two drains, LED Lighting and Quality lockable insulated doors'
-          text4=  'Trailer frames are hot dip galvanised and feature a rear step, jockey wheel, optional brakes and LED lights. All new trailers come with a new WOF and Registration so they are ready for use'
+          text3=  'Electronic controllers are installed as standard, Alloy Checker plate flooring, LED Lighting and Quality lockable insulated doors'
+          text4=  'Trailer frames are hot dip galvanised and feature a rear step, jockey wheel, brakes and LED lights. All new trailers come with a new WOF and Registration so they are ready for use'
           uListItems= {[]}
         />
 
@@ -190,7 +190,7 @@ export default function ProductsPage() {
           text1=  "We offer a comprehensive range of features, extra's and design freedoms to our trailers"
           text2=  'We will custom build to your design or work with you to design a trailer that will best suit your needs' 
           text3=  'This includes colour options, sizing, lighting and interior options. Genset supply and fitment'
-          text4=  'We fit doors of any size with many types of opening options'
+          text4=  ''
           uListItems= {[]}
         />
 
