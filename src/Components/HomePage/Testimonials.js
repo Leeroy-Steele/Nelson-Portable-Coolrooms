@@ -36,7 +36,7 @@ export default function Testimonials() {
   let update
 
   useEffect(() => { 
-    update = setTimeout(chooseTestimonial,4000) //starts when component mounts  
+    update = setTimeout(chooseTestimonial,4500) //  change the testimonial with setTimeout
   },[testimonial]) 
   
 
