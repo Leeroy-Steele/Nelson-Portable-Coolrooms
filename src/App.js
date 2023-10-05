@@ -1,53 +1,69 @@
-import {  Route, Routes } from "react-router-dom" //npm install react-router-dom
-import React from 'react' // needed here for lazy loading
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from "react-router-dom"; //npm install react-router-dom
+import React from "react"; // needed here for lazy loading
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import HeaderNavbar from './Components/HeaderNavbar';
-import Footer from './Components/Footer'
+import HeaderNavbar from "./Components/HeaderNavbar";
+import Footer from "./Components/Footer";
 import PageNotFound from "./Components/PageNotFound";
 
-const HomePage = React.lazy(()=>import('./Components/HomePage/HomePage'))
-const ProductsPage = React.lazy(()=>import('./Components/ProductsPage/ProductsPage'))
-const ContactPage = React.lazy(()=>import("./Components/ContactPage/ContactPage"));
+const HomePage = React.lazy(() => import("./Components/HomePage/HomePage"));
+const ProductsPage = React.lazy(() =>
+  import("./Components/ProductsPage/ProductsPage")
+);
+const ContactPage = React.lazy(() =>
+  import("./Components/ContactPage/ContactPage")
+);
+const ProductCard = React.lazy(() =>
+  import("./Components/SingleProductPage/ProductCard")
+);
 
 function App() {
   return (
     <div className="App">
+      <HeaderNavbar />
 
-      <HeaderNavbar/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <React.Suspense fallback={<Loading />}>
+              <HomePage />
+            </React.Suspense>
+          }
+        />
 
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <React.Suspense fallback={<Loading />}>
-                <HomePage />
-              </React.Suspense>
-            }/>
+        <Route
+          path="/Products"
+          element={
+            <React.Suspense fallback={<Loading />}>
+              <ProductsPage />
+            </React.Suspense>
+          }
+        />
 
-          <Route
-            path='/Products'
-            element={
-              <React.Suspense fallback={<Loading />}>
-                <ProductsPage />
-              </React.Suspense>
-            }/>
-          
-            <Route 
-              path="/Contact" 
-              element= {
-                <React.Suspense fallback={<Loading />}>
-                  <ContactPage />
-                </React.Suspense>
-            }/>
-            
-            <Route path="*" element={<PageNotFound />} />
+        <Route
+          path="/Product"
+          element={
+            <React.Suspense fallback={<Loading />}>
+              <ProductCard />
+            </React.Suspense>
+          }
+        />
 
-        </Routes>
+        <Route
+          path="/Contact"
+          element={
+            <React.Suspense fallback={<Loading />}>
+              <ContactPage />
+            </React.Suspense>
+          }
+        />
 
-        <Footer/>
-     
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }

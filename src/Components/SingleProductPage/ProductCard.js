@@ -1,16 +1,25 @@
 import React from 'react'
 import { HashLink as Link } from 'react-router-hash-link'; // for enquiry button
+import ProductData from '../ProductData'
+import {useSearchParams} from "react-router-dom";
+  
 
 // for bootstrap
 import Card from 'react-bootstrap/Card';
 
 export default function ProductCard(props) {
 
+  const [searchParams, setSearchParams] = useSearchParams()
+  const enquirySubject = searchParams.get('productTitle')
+
+
+
   // enquiry button path to navigate to (use query params to part fill enquiry form)
   let enquiryPath = `/Contact?enquirySubject=${props.title}#enquiryAnchorTag`
 
   return (
     <div>
+      <p className='text-black'>{enquirySubject}</p>
         <Card className='border-0 pt-3 pb-5' >
 
           <Card.Img variant="top" src={props.imgURL} className="cardImage"/>
