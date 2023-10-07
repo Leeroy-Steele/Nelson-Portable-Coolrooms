@@ -1,47 +1,88 @@
-import React from 'react'
-import { HashLink as Link } from 'react-router-hash-link'; // for enquiry button
-import ProductData from '../ProductData'
-import {useSearchParams} from "react-router-dom";
-  
+import React, { useState } from "react";
+import { HashLink as Link } from "react-router-hash-link"; // for enquiry button
+import ProductData from "../ProductData";
+import { useSearchParams, useNavigate } from "react-router-dom";
+
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 // for bootstrap
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
-export default function ProductCard(props) {
+export default function ProductCard() {
+  const [searchParams] = useSearchParams();
+  const [productTitle, setProductTitle] = useState(searchParams.get("productTitle"))
 
-  const [searchParams, setSearchParams] = useSearchParams()
-  const enquirySubject = searchParams.get('productTitle')
+  const [product, setProduct] = useState(ProductData.filter((item)=>item.title===productTitle))
+  const[foo, setFoo] = useState(false)
 
-
+  const navigate = useNavigate();
+  const HandleProductTitleTabs = (k)=>{
+    navigate(`/product?${k}`)
+    setFoo(!foo)
+  }
 
   // enquiry button path to navigate to (use query params to part fill enquiry form)
-  let enquiryPath = `/Contact?enquirySubject=${props.title}#enquiryAnchorTag`
+  let enquiryPath = `/Contact?enquirySubject=${productTitle}#enquiryAnchorTag`;
 
   return (
-    <div>
-      <p className='text-black'>{enquirySubject}</p>
-        <Card className='border-0 pt-3 pb-5' >
+    <div className="container">
 
-          <Card.Img variant="top" src={props.imgURL} className="cardImage"/>
+    <Tabs
+      defaultActiveKey={productTitle}
+      id="fill-tab-example"
+      className="mb-3"
+      // fill
+      justify
+      onSelect={(k)=>HandleProductTitleTabs(k)}
+    >
+    {ProductData.map((item)=>
+      <Tab eventKey={item.title} title={item.title}></Tab>
+    )}
+      
 
-          <Card.Body className='text-center'>
+    </Tabs>
 
-            <Card.Title className='text-primary'>{props.title}</Card.Title>
 
-            <Card.Subtitle className="mb-2 text-muted">{props.subTitle}</Card.Subtitle>
-            
-            <Link className='btn btn-primary w-25' to={enquiryPath}>Enquire</Link>
+      <div className="row row-cols-1 row-cols-md-2 justify-content-center pt-3 pb-5 mb-5">
+        <Card className="border-0 pt-3 pb-5">
+          <Card.Body className="text-center">
+            <Card.Title className="text-primary">{product[0].title}</Card.Title>
 
-            <Card.Text className='text-dark text-start mt-3'>{props.text1}</Card.Text>
-            
-            <Card.Text className='text-dark text-start'>{props.text2}</Card.Text>
-            
-            <Card.Text className='text-dark text-start'>{props.text3}</Card.Text>
+            <Card.Subtitle className="mb-2 text-muted">
+              {product[0].subTitle}
+            </Card.Subtitle>
 
-            <Card.Text className='text-dark text-start'>{props.text4}</Card.Text>
+            <Link className="btn btn-primary w-25" to={enquiryPath}>
+              Enquire
+            </Link>
 
+            <Card.Text className="text-dark text-start mt-3">
+              {product[0].text1}
+            </Card.Text>
+
+            <Card.Text className="text-dark text-start">
+              {product[0].text2}
+            </Card.Text>
+
+            <Card.Text className="text-dark text-start">
+              {product[0].text3}
+            </Card.Text>
+
+            <Card.Text className="text-dark text-start">
+              {product[0].text4}
+            </Card.Text>
           </Card.Body>
         </Card>
+
+        <Card className="border-0 pt-3 pb-5">
+          <Card.Img
+            variant="top"
+            src={product[0].imgURLs[0]}
+            className="cardImage"
+          />
+        </Card>
+      </div>
     </div>
-  )
+  );
 }
