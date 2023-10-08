@@ -22,6 +22,7 @@ export default function ProductsPage() {
             text1=    {product.text1}
             text3=    {product.text3}
             uListItems= {product.uListItems}
+            key=    {product.title}
           />)
         })}
       </div>

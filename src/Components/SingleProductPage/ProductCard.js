@@ -4,6 +4,7 @@ import ProductData from "../ProductData";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Carousel from 'react-bootstrap/Carousel';
 
 // for bootstrap
 import Card from "react-bootstrap/Card";
@@ -35,7 +36,7 @@ export default function ProductCard() {
         onSelect={(k) => HandleProductTitleTabs(k)}
       >
         {ProductData.map((item) => (
-          <Tab eventKey={item.title} title={item.title}></Tab>
+          <Tab eventKey={item.title} title={item.title} key={item.title}></Tab>
         ))}
       </Tabs>
 
@@ -70,13 +71,19 @@ export default function ProductCard() {
           </Card.Body>
         </Card>
 
-        <Card className="border-0 pt-3 pb-5">
-          <Card.Img
-            variant="top"
-            src={product[0].imgURLs[0]}
-            className="cardImage"
-          />
-        </Card>
+        <Carousel fade variant="dark"  indicators={false}>
+            {product[0].imgURLs.map((image)=>(
+              <Carousel.Item className="carouselImage" key={image}>
+                <img
+                  className="d-block w-100"
+                  src={image}
+                  alt="First slide"
+                />
+            </Carousel.Item>
+            ))}
+
+        </Carousel>
+
       </div>
     </div>
   );
