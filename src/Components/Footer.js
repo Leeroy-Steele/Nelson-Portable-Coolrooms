@@ -1,4 +1,4 @@
-import React from 'react'
+
 import MainLogo from './MainLogo'
 
 export default function Footer() {

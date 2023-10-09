@@ -33,23 +33,32 @@ export default function ProductCard() {
         id="fill-tab-example"
         className="mb-3 d-md-flex d-none"
         justify
+        // fill
         onSelect={(k) => HandleProductTitleTabs(k)}
       >
         {ProductData.map((item) => (
+          
           <Tab eventKey={item.title} title={item.title} key={item.title}></Tab>
         ))}
       </Tabs>
 
-      <div className="row row-cols-1 row-cols-md-2 justify-content-center pt-3 pb-5 mb-5">
+
+
+
+
+
+      {product.length===1 &&
+      
+      <div className="row row-cols-1 row-cols-lg-2 justify-content-center pt-2 pb-5 mb-5">
         <Card className="border-0 pt-3 pb-5">
           <Card.Body className="text-center">
             <Card.Title className="text-primary">{product[0].title}</Card.Title>
 
-            <Card.Subtitle className="mb-2 text-muted">
+            <Card.Subtitle className="mb-3 text-muted">
               {product[0].subTitle}
             </Card.Subtitle>
 
-            <Link className="btn btn-primary w-25 my-3" to={enquiryPath}>
+            <Link className="btn btn-primary my-3 rounded-circle" to={enquiryPath} style={{width:"100px",height:"100px", lineHeight: "85px"}}>
               Enquire
             </Link>
 
@@ -71,7 +80,7 @@ export default function ProductCard() {
           </Card.Body>
         </Card>
 
-        <Carousel fade variant="dark"  indicators={false}>
+        <Carousel fade variant="dark"  indicators={false} className="my-auto">
             {product[0].imgURLs.map((image)=>(
               <Carousel.Item className="carouselImage" key={image}>
                 <img
@@ -85,6 +94,7 @@ export default function ProductCard() {
         </Carousel>
 
       </div>
+      }
     </div>
   );
 }
