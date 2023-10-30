@@ -38,7 +38,7 @@ export default function EnquiryForm() {
     const data = JSON.stringify({
       api_key: "api-43E42C2A96AB11ED9716F23C9333BA00",
       sender: "Website_For_Nelson_Portable_Coolrooms@mail.com",
-      to: ["sales@nelsonportablecoolrooms.co.nz", "Leeroysteele@hotmail.com"],
+      to: ["sales@nelsonportablecoolrooms.co.nz"],
 
       //define email content here
 
