@@ -1,6 +1,8 @@
 import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import MainLogoFile from "../../Components/MainLogo";
+import Badge from "react-bootstrap/Badge";
+import questionMark from "../../Logos/Question mark.svg";
 
 export default function AboutUs() {
   return (
@@ -12,8 +14,17 @@ export default function AboutUs() {
         borderImage: `url(${MainLogoFile}) 30 round`,
       }}
     >
-      <div className="col-lg-6 col-md-10 pb-lg-3" style={{ maxWidth: "800px" }}>
-        <h2 className="display-3 pt-5 text-center">ABOUT US</h2>
+      <div className="col-lg-10 col-md-10 pb-lg-3">
+        <br></br>
+        <br></br>
+        <hr></hr>
+        <h2 className="display-3 text-center pt-4">
+          ABOUT US{"   "}
+          <Badge bg="primary" >
+            <img width="120" height="120" src={questionMark} alt="about" />
+          </Badge>
+        </h2>
+        <hr></hr>
 
         <p className="p-4 fs-5">
           At Nelson Portable Coolrooms we are able to call on over 2 decades of
@@ -30,15 +41,27 @@ export default function AboutUs() {
           business in the ever more integral part of our economy. The
           temperature controlled food industry.
         </p>
+        <br></br>
+        <br></br>
+        <hr className="mt-5"></hr>
+        <h2 className="display-3 pb-2 text-center pt-4">OUR SERVICES{"   "}          
+        <Badge bg="primary">
+            <img width="120" height="120" style={{filter:"Invert(1)"}} src="https://img.icons8.com/ios/100/000000/wrench--v1.png" alt="about" />
+          </Badge></h2>
+        <hr></hr>
       </div>
 
-      <div
-        className="col-lg-6 col-md-10 m-mb-3 px-4 pb-lg-3"
-        style={{ maxWidth: "500px" }}
-      >
-        <h2 className="display-3 pt-5 pb-4 text-center">OUR SERVICES</h2>
+      {/* <img width="100" height="100" src="https://img.icons8.com/ios/100/000000/wrench--v1.png" alt="wrench--v1"/> */}
 
-        <ListGroup variant="flush text-center mb-5">
+
+
+
+
+      <div
+        className="col-lg-10 col-md-10 m-mb-3 px-4 pb-lg-3"
+        style={{ maxWidth: "600px" }}
+      >
+        <ListGroup variant="flush mb-5 fs-5">
           <ListGroup.Item className="bg-primary text-white">
             Short or Long term Hire of Portable Refrigeration products
           </ListGroup.Item>

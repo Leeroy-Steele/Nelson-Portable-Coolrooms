@@ -7,8 +7,9 @@ export default function homePageJumbotron() {
   return (
     <>
       <div className="homeJumbotronDiv">
+        
         <div className="jumbotronText">
-          <h1 className="display-4 pt-5 fw-bold">NZ BUILT</h1>
+          <h1 className="display-4 pt-5 fw-bold"><br></br>NZ BUILT</h1>
           <h1 className="display-4 pb-1">RELIABLE COMMERCIAL COOLROOMS</h1>
 
           <MainLogo cName="jumbotronAcLogo"></MainLogo>

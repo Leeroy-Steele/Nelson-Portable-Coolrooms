@@ -7,6 +7,40 @@ import contactLogo from "../Logos/contactLogo.svg";
 import MainLogo from "../Components/MainLogo";
 import facebookLogo from "../Logos/facebook.svg";
 
+//Buttons
+const navButtons = [
+  {
+    name: "Home",
+    imageURL: homeLogo,
+    href: "/",
+    isExternal: false,
+  },
+  {
+    name: "Products",
+    imageURL: productsLogo,
+    href: "/Products",
+    isExternal: false,
+  },
+  {
+    name: "Contact",
+    imageURL: contactLogo,
+    href: "/Contact",
+    isExternal: false,
+  },
+  {
+    name: "Facebook",
+    imageURL: facebookLogo,
+    href: "https://www.facebook.com/nelsonportablecoolrooms",
+    isExternal: true,
+  },
+  {
+    name: "Instagram",
+    imageURL: "https://img.icons8.com/ios-filled/50/instagram-new--v1.png",
+    href: "https://www.instagram.com/nelsonportablecoolrooms",
+    isExternal: true,
+  },
+];
+
 export default function HeaderNavbar() {
   return (
     <header>
@@ -27,57 +61,37 @@ export default function HeaderNavbar() {
           </div>
 
           <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-            <li>
-              <NavLink to="/">
-                <div className="nav-link text-white">
-                  <img
-                    className="navLinkImg bi d-block mx-auto mb-1"
-                    src={homeLogo}
-                    alt="logo"
-                  ></img>
-                  Home
-                </div>
-              </NavLink>
-            </li>
+            {navButtons.map((button) =>
+              button.isExternal ? (
+                <li>
+                  <a href={button.href}>
+                    <div className="nav-link text-white">
+                      <img
+                        className="navLinkImg bi d-block mx-auto mb-1"
+                        src={button.imageURL}
+                        alt="logo"
+                      ></img>
+                      {button.name}
+                    </div>
+                  </a>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to={button.href}>
+                    <div className="nav-link text-white">
+                      <img
+                        className="navLinkImg bi d-block mx-auto mb-1"
+                        src={button.imageURL}
+                        alt="logo"
+                      ></img>
+                      {button.name}
+                    </div>
+                  </NavLink>
+                </li>
+              )
+            )}
 
-            <li>
-              <NavLink to="/Products">
-                <div className="nav-link text-white">
-                  <img
-                    className="navLinkImg bi d-block mx-auto mb-1"
-                    src={productsLogo}
-                    alt="logo"
-                  ></img>
-                  Products
-                </div>
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/Contact">
-                <div className="nav-link text-white">
-                  <img
-                    className="navLinkImg bi d-block mx-auto mb-1"
-                    src={contactLogo}
-                    alt="logo"
-                  ></img>
-                  Contact
-                </div>
-              </NavLink>
-            </li>
-
-            <li>
-              <a href="https://www.facebook.com/nelsonportablecoolrooms">
-                <div className="nav-link text-white">
-                  <img
-                    className="navLinkImg bi d-block mx-auto mb-1"
-                    src={facebookLogo}
-                    alt="logo"
-                  ></img>
-                  Facebook
-                </div>
-              </a>
-            </li>
+          
           </ul>
         </div>
       </div>

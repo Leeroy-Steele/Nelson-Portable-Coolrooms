@@ -12,7 +12,10 @@ function TopSellingProducts() {
   return (
     <>
       <div className="carouselDiv py-2">
-        <h2 className="text-primary pt-5 mt-4 mb-4 text-center display-5">
+        <br></br>
+        <br></br>
+
+        <h2 className="text-primary pt-5 mt-4 mb-4 text-center display-4">
           Top Selling Products
         </h2>
         <Carousel className="py-4" interval={2000}>
@@ -82,6 +85,9 @@ function TopSellingProducts() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+        <br></br>
+        <br></br>
+
       </div>
     </>
   );
