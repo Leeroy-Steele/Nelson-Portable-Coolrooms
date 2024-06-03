@@ -18,7 +18,6 @@ import SingleAxleImage2 from "../Images/2_singleAxleTrailers/singleAxle (2).PNG"
 import SingleAxleImage3 from "../Images/2_singleAxleTrailers/singleAxle (3).PNG";
 import SingleAxleImage4 from "../Images/2_singleAxleTrailers/singleAxle (4).PNG";
 import SingleAxleImage5 from "../Images/2_singleAxleTrailers/singleAxle (5).PNG";
-import SingleAxleImage6 from "../Images/2_singleAxleTrailers/singleAxle (6).PNG";
 
 //tandem braked
 import TandemBrakedImage1 from "../Images/3_tandemBraked/tandemBraked (1).PNG";
@@ -103,7 +102,6 @@ const ProductData = [
       SingleAxleImage3,
       SingleAxleImage4,
       SingleAxleImage5,
-      SingleAxleImage6,
     ],
   },
   {
