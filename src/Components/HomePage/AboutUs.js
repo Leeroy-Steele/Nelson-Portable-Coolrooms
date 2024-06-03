@@ -2,7 +2,6 @@ import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import MainLogoFile from "../../Components/MainLogo";
 import Badge from "react-bootstrap/Badge";
-import questionMark from "../../Logos/Question mark.svg";
 
 export default function AboutUs() {
   return (
@@ -21,7 +20,8 @@ export default function AboutUs() {
         <h2 className="display-3 text-center pt-4">
           ABOUT US{"   "}
           <Badge bg="primary" >
-            <img width="120" height="120" src={questionMark} alt="about" />
+            {/* <img width="120" height="120" src={questionMark} alt="about" /> */}
+            <img width="120" height="120" style={{filter:"Invert(1)"}} src="https://img.icons8.com/ios/200/about.png" alt="about"/>
           </Badge>
         </h2>
         <hr></hr>
